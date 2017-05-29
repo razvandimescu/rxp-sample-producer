@@ -13,7 +13,6 @@ public class App {
 		HppRequest hppRequest = new HppRequest()
 								.addAmount(100)
 								.addCurrency("EUR")
-                                .addType(PaymentType.AUTH_MOBILE)
 								.addMerchantId("eloquentix");
 
 		RealexHpp realexHpp = new RealexHpp("secret");
