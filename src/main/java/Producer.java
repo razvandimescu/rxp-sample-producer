@@ -4,14 +4,13 @@
 import com.realexpayments.hpp.sdk.RealexHpp;
 import com.realexpayments.hpp.sdk.domain.HppRequest;
 
-public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
+public class Producer {
 
     public String realexJson(){
 		HppRequest hppRequest = new HppRequest()
 								.addAmount(100)
+								// .addCardStorageEnable(true)
+								// .addPayerExists(false)
 								.addCurrency("EUR")
 								.addMerchantId("eloquentix");
 
@@ -20,6 +19,8 @@ public class App {
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().realexJson());
+        System.out.println("realex_start");
+        System.out.println(new Producer().realexJson());
+        System.out.println("realex_end");
     }
 }

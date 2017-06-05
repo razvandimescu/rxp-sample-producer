@@ -31,7 +31,13 @@ dependencies {
 // Define the main class for the application
 mainClassName = 'App'
 
-task execute(type:JavaExec) {
-   main = mainClassName
+task produce(type:JavaExec) {
+   main = "Producer"
    classpath = sourceSets.main.runtimeClasspath
+}
+
+task consume(type:JavaExec) {
+   main = "Consumer"
+   classpath = sourceSets.main.runtimeClasspath
+   args(json)
 }
