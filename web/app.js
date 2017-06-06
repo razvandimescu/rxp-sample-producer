@@ -16,7 +16,11 @@ app.get('/producer', function (req, res) {
 })
 
 function produce(){
-    return execSync('cd ../;gradle -Pjson=whatever produce').toString('utf8').match(/realex_start\n(.*)\nrealex_end/)[1]
+    var json = execSync('cd ../;gradle -Pjson=whatever produce').toString('utf8').match(/realex_start\n(.*)\nrealex_end/)[1]
+
+    console.log("produced json: "+json);
+    console.log("base64 decoded: "+JSON.stringify(base64Decode(JSON.parse(json))));
+    return json
 }
 
 app.post('/consumer', function (req, res) {
